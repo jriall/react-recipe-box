@@ -5,8 +5,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDoList: ["Clean Room", "Laundry", "Homework"],
-      completedList: ["Shopping", "Cooking", "Take out rubbish"],
+      toDoList: [["Clean Room", 1508068991398], ["Fish", 1508068991398]],
+      completedList: [["Shopping", 1508068991398]],
       deletedList: [],
       inputContent: "",
     };
@@ -26,13 +26,14 @@ class App extends Component {
   addItem(e) {
     if (this.state.inputContent) {
       const current = this.state.toDoList;
-      current.push(this.state.inputContent);
+      current.push([this.state.inputContent, Date.now()]);
       this.setState({
         toDoList: current,
         inputContent: "",
       });
     }
     e.preventDefault();
+    console.log(this.state.toDoList);
   }
 
   deleteItem(key, list) {
@@ -54,7 +55,7 @@ class App extends Component {
 
   handleComplete(key, list) {
     if (list === "toDoList") {
-      const newCompletedList = this.state.completedList.concat(key);
+      const newCompletedList = [...this.state.completedList, key];
       const newToDoList = this.state[list].filter(a => a !== key);
       this.setState({
         toDoList: newToDoList,
@@ -63,7 +64,7 @@ class App extends Component {
     }
     if (list === "completedList") {
       const newCompletedList = this.state[list].filter(a => a !== key);
-      const newToDoList = this.state.toDoList.concat(key);
+      const newToDoList = [...this.state.toDoList, key];
       this.setState({
         toDoList: newToDoList,
         completedList: newCompletedList,
@@ -76,12 +77,10 @@ class App extends Component {
       toDoList: this.state.toDoList.sort((a,b) => a-b),
       completedList: this.state.toDoList.sort(),
       deletedList: this.state.toDoList.sort(),
-    })
-    console.log(this.state)
+    });
   }
 
   render() {
-    console.log(this.state.toDoList);
     return (
       <div className="App">
         <h1>To Do List</h1>
