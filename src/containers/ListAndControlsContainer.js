@@ -5,8 +5,8 @@ import NewItemInput from "../components/NewItemInput";
 const ListAndControlsContainer = (props) => {
   return (
     <div className="list-and-controls-container">
-      <NewItemInput addItem={props.addItem} inputContent={props.inputContent} onInputChange={props.onInputChange}/>
-      <ListContainer list={props.list} />
+      <NewItemInput addItem={props.addItem} inputContent={props.inputContent} onInputChange={props.onInputChange} />
+      <ListContainer list={props.list} deleteItem={props.deleteItem} />
     </div>
   );
 };

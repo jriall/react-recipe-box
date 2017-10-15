@@ -10,15 +10,18 @@ class App extends Component {
     };
     this.addItem = this.addItem.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   addItem(e) {
-    const current = this.state.list;
-    current.push(this.state.inputContent);
-    this.setState({
-      list: current,
-      inputContent: "",
-    });
+    if (this.state.inputContent) {
+      const current = this.state.list;
+      current.push(this.state.inputContent);
+      this.setState({
+        list: current,
+        inputContent: "",
+      });
+    }
     e.preventDefault();
   }
 
@@ -28,11 +31,18 @@ class App extends Component {
     });
   }
 
+  deleteItem(key) {
+    const filtered = this.state.list.filter(a => a !== key);
+    this.setState({
+      list: filtered,
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>To Do List</h1>
-        <ListAndControlsContainer list={this.state.list} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange}/>
+        <ListAndControlsContainer list={this.state.list} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange} deleteItem={this.deleteItem}/>
       </div>
     );
   }
