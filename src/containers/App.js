@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import ListAndControlsContainer from "./ListAndControlsContainer";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: ["Clean Room", "Laundry", "Homework", "Fishing"],
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>React Recipe Box</h1>
-        </header>
-        <p className="App-intro">
-          Getting Started!
-        </p>
+        <h1>To Do List</h1>
+        <ListAndControlsContainer list={this.state.list} />
       </div>
     );
   }
