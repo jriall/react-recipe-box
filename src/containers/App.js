@@ -93,14 +93,13 @@ class App extends Component {
 
   sortChronologically(list) {
     if (list === "toDoList") {
-      const newToDoList = this.state[list].sort((a,b) => a[1]>b[1]);
-      console.log(newToDoList)
+      const newToDoList = this.state[list].sort((a, b) => a[1]>b[1]);
       this.setState({
         toDoList: newToDoList,
       });
     }
     if (list === "completedList") {
-      const newCompletedList = this.state[list].sort((a,b) => a[1]>b[1]);
+      const newCompletedList = this.state[list].sort((a, b) => a[1]>b[1]);
       this.setState({
         completedList: newCompletedList,
       });
