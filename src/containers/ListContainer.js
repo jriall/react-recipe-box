@@ -8,8 +8,13 @@ const ListContainer = (props) => {
     <div>
       <h2>To Do Items</h2>
       <ul className="list-container">{listItems}</ul>
+      <button className="sort-button" onClick={() => props.sortAlphabetically("toDoList")}>Sort To Dos Alphabetically</button>
+      <button className="sort-button" onClick={() => props.sortChronologically("toDoList")}>Sort To Dos Chronologically</button>
+      <button className="visibility-button" onClick={() => props.toggleCompletedVisibility()}>{props.showCompleted ? `Hide ${props.completedList.length} Completed To Dos` : `Show ${props.completedList.length} Completed To Dos`}</button>
       <h2>Completed To Do Items</h2>
       <ul className="list-container">{completedListItems}</ul>
+      <button className="sort-button" onClick={() => props.sortAlphabetically("completedList")}>Sort Completed Alphabetically</button>
+      <button className="sort-button" onClick={() => props.sortChronologically("completedList")}>Sort Completed Chronologically</button>
     </div>
   );
 };

@@ -5,16 +5,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDoList: [["Clean Room", 1508068991398], ["Fish", 1508068991398]],
+      toDoList: [["Clean Room", 1508068991398], ["Aish", 1508068991399], ["Zed", 1508068991396], ["Barrel", 15080689913999]],
       completedList: [["Shopping", 1508068991398]],
       deletedList: [],
       inputContent: "",
+      showCompleted: false,
     };
     this.addItem = this.addItem.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
     this.sortAlphabetically = this.sortAlphabetically.bind(this);
+    this.sortChronologically = this.sortChronologically.bind(this);
+    this.toggleCompletedVisibility = this.toggleCompletedVisibility.bind(this);
   }
 
   onInputChange(term) {
@@ -72,20 +75,55 @@ class App extends Component {
     }
   }
 
-  sortAlphabetically() {
-    this.setState({
-      toDoList: this.state.toDoList.sort((a,b) => a-b),
-      completedList: this.state.toDoList.sort(),
-      deletedList: this.state.toDoList.sort(),
-    });
+  sortAlphabetically(list) {
+    if (list === "toDoList") {
+      const newToDoList = this.state[list].sort((a,b) => a[0]>b[0]);
+      console.log(newToDoList)
+      this.setState({
+        toDoList: newToDoList,
+      });
+    }
+    if (list === "completedList") {
+      const newCompletedList = this.state[list].sort((a,b) => a[0]>b[0]);
+      this.setState({
+        completedList: newCompletedList,
+      });
+    }
+  }
+
+  sortChronologically(list) {
+    if (list === "toDoList") {
+      const newToDoList = this.state[list].sort((a,b) => a[1]>b[1]);
+      console.log(newToDoList)
+      this.setState({
+        toDoList: newToDoList,
+      });
+    }
+    if (list === "completedList") {
+      const newCompletedList = this.state[list].sort((a,b) => a[1]>b[1]);
+      this.setState({
+        completedList: newCompletedList,
+      });
+    }
+  }
+
+  toggleCompletedVisibility() {
+    if (this.state.showCompleted) {
+      this.setState({
+        showCompleted: false,
+      });
+    } else {
+      this.setState({
+        showCompleted: true,
+      });
+    }
   }
 
   render() {
     return (
       <div className="App">
         <h1>To Do List</h1>
-        <ListAndControlsContainer list={this.state.toDoList} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange} deleteItem={this.deleteItem} completedList={this.state.completedList} handleComplete={this.handleComplete}/>
-        <button className="sort-button" onClick={this.sortAlphabetically}>Sort Alphabetically</button>
+        <ListAndControlsContainer list={this.state.toDoList} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange} deleteItem={this.deleteItem} completedList={this.state.completedList} handleComplete={this.handleComplete} sortAlphabetically={this.sortAlphabetically} sortChronologically={this.sortChronologically} toggleCompletedVisibility={this.toggleCompletedVisibility} showCompleted={this.state.showCompleted} />
       </div>
     );
   }
