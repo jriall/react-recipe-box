@@ -13,6 +13,7 @@ class App extends Component {
     this.addItem = this.addItem.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.handleComplete = this.handleComplete.bind(this);
   }
 
   onInputChange(term) {
@@ -50,12 +51,33 @@ class App extends Component {
     }
   }
 
+  handleComplete(key, list) {
+    if (list === "toDoList") {
+      console.log('moving to completed')
+      const newCompletedList = this.state.completedList.concat(key);
+      const newToDoList = this.state[list].filter(a => a !== key);
+      this.setState({
+        toDoList: newToDoList,
+        completedList: newCompletedList,
+      });
+    }
+    if (list === "completedList") {
+      console.log('moving to uncompleted')
+      const newCompletedList = this.state[list].filter(a => a !== key);
+      const newToDoList = this.state.toDoList.concat(key);
+      this.setState({
+        toDoList: newToDoList,
+        completedList: newCompletedList,
+      });
+    }
+  }
+
   render() {
     console.log(this.state.toDoList);
     return (
       <div className="App">
         <h1>To Do List</h1>
-        <ListAndControlsContainer list={this.state.toDoList} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange} deleteItem={this.deleteItem} completedList={this.state.completedList} />
+        <ListAndControlsContainer list={this.state.toDoList} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange} deleteItem={this.deleteItem} completedList={this.state.completedList} handleComplete={this.handleComplete}/>
       </div>
     );
   }

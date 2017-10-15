@@ -6,7 +6,7 @@ const ListAndControlsContainer = (props) => {
   return (
     <div className="list-and-controls-container">
       <NewItemInput addItem={props.addItem} inputContent={props.inputContent} onInputChange={props.onInputChange} />
-      <ListContainer list={props.list} deleteItem={props.deleteItem} completedList={props.completedList} />
+      <ListContainer list={props.list} deleteItem={props.deleteItem} completedList={props.completedList} handleComplete={props.handleComplete} />
     </div>
   );
 };
