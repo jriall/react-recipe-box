@@ -10,6 +10,10 @@ class App extends Component {
       deletedList: [],
       inputContent: "",
       showCompleted: false,
+      toDoSortedAlphabetically: false,
+      toDoSortedChronologically: false,
+      completedSortedAlphabetically: false,
+      completedSortedChronologically: false,
     };
     this.addItem = this.addItem.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -77,32 +81,67 @@ class App extends Component {
 
   sortAlphabetically(list) {
     if (list === "toDoList") {
-      const newToDoList = this.state[list].sort((a,b) => a[0]>b[0]);
-      console.log(newToDoList)
-      this.setState({
-        toDoList: newToDoList,
-      });
+      if (!this.state.toDoSortedAlphabetically) {
+        const newToDoList = this.state[list].sort((a,b) => a[0]>b[0]);
+        this.setState({
+          toDoList: newToDoList,
+          toDoSortedAlphabetically: true,
+        });
+      } else {
+        const newToDoList = this.state[list].sort((a,b) => a[0]<b[0]);
+        this.setState({
+          toDoList: newToDoList,
+          toDoSortedAlphabetically: false,
+        });
+      }
     }
     if (list === "completedList") {
-      const newCompletedList = this.state[list].sort((a,b) => a[0]>b[0]);
-      this.setState({
-        completedList: newCompletedList,
-      });
+      if (!this.state.completedSortedAlphabetically) {
+        const newCompletedList = this.state[list].sort((a,b) => a[0]>b[0]);
+        this.setState({
+          completedList: newCompletedList,
+          completedSortedAlphabetically: true,
+        });
+      } else {
+        const newCompletedList = this.state[list].sort((a,b) => a[0]<b[0]);
+        this.setState({
+          completedList: newCompletedList,
+          completedSortedAlphabetically: false,
+        });
+      }
     }
   }
 
   sortChronologically(list) {
     if (list === "toDoList") {
-      const newToDoList = this.state[list].sort((a, b) => a[1]>b[1]);
-      this.setState({
-        toDoList: newToDoList,
-      });
+      if (!this.state.toDoSortedChronologically) {
+        const sorted = this.state[list].sort((a, b) => b[1]-a[1]);
+        this.setState({
+          toDoList: sorted,
+          toDoSortedChronologically: true,
+        });
+      } else {
+        const sorted = this.state[list].sort((a, b) => a[1]-b[1]);
+        this.setState({
+          toDoList: sorted,
+          toDoSortedChronologically: false,
+        });
+      }
     }
     if (list === "completedList") {
-      const newCompletedList = this.state[list].sort((a, b) => a[1]>b[1]);
-      this.setState({
-        completedList: newCompletedList,
-      });
+      if (!this.state.completedSortedChronologically) {
+        const sorted = this.state[list].sort((a, b) => b[1]-a[1]);
+        this.setState({
+          completedList: sorted,
+          completedSortedChronologically: true,
+        });
+      } else {
+        const sorted = this.state[list].sort((a, b) => a[1]-b[1]);
+        this.setState({
+          completedList: sorted,
+          completedSortedChronologically: false,
+        });
+      }
     }
   }
 
@@ -122,7 +161,19 @@ class App extends Component {
     return (
       <div className="App">
         <h1>To Do List</h1>
-        <ListAndControlsContainer list={this.state.toDoList} addItem={this.addItem} inputContent={this.state.inputContent} onInputChange={this.onInputChange} deleteItem={this.deleteItem} completedList={this.state.completedList} handleComplete={this.handleComplete} sortAlphabetically={this.sortAlphabetically} sortChronologically={this.sortChronologically} toggleCompletedVisibility={this.toggleCompletedVisibility} showCompleted={this.state.showCompleted} />
+        <ListAndControlsContainer
+          list={this.state.toDoList}
+          addItem={this.addItem}
+          inputContent={this.state.inputContent}
+          onInputChange={this.onInputChange}
+          deleteItem={this.deleteItem}
+          completedList={this.state.completedList}
+          handleComplete={this.handleComplete}
+          sortAlphabetically={this.sortAlphabetically}
+          sortChronologically={this.sortChronologically}
+          toggleCompletedVisibility={this.toggleCompletedVisibility}
+          showCompleted={this.state.showCompleted}
+        />
       </div>
     );
   }
