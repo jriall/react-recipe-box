@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from '../components/ListItem';
 
 const CompletedListContainer = (props) => {
-  const completedListItems = props.completedList.map((item, index) => <ListItem item={item} key={index} deleteItem={props.deleteItem} list="completedList" handleComplete={props.handleComplete} />);
+  const completedListItems = props.completedList.map((item, index) => <ListItem item={item} key={index} deleteItem={props.deleteItem} list="completedList" handleComplete={props.handleComplete} deleteItem={props.deleteItem}/>);
 
   return (
     <div>

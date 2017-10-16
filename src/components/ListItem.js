@@ -16,11 +16,11 @@ const ListItem = (props) => {
 
   return (
     <div>
-    <li className="list-item" onClick={() => props.handleComplete(props.item, props.list)}>
-      {props.list === "completedList" ? <h3><strike>{props.item[0]}</strike></h3> : <h3>{props.item[0]}</h3>}
-      <p>Created on: {`${date}/${month}/${year} at ${hours}:${minutes}`}</p>
-    </li>
-      <button className="delete-list-item" onClick={() => props.deleteItem(props.item, props.list)}>Delete</button>
+      <li className="list-item">
+        {props.list === "completedList" ? <h3 onClick={() => props.handleComplete(props.item, props.list)}><strike>{props.item[0]}</strike></h3> : <h3 onClick={() => props.handleComplete(props.item, props.list)}>{props.item[0]}</h3>}
+        <p>Created on: {`${date}/${month}/${year} at ${hours}:${minutes}`}</p>
+        <button className="delete-list-item" onClick={() => props.deleteItem(props.item, props.list)}>Delete</button>
+      </li>
     </div>
   );
 };
