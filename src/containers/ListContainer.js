@@ -18,12 +18,19 @@ const ListContainer = (props) => {
       </div>
     )
   }
+  let toDoContainer;
+  if (props.list.length > 0) {
+    toDoContainer = (
+      <div>
+        <ul className="list-container">{listItems}</ul>
+        <button className="sort-button" onClick={() => props.sortAlphabetically("toDoList")}>Sort To Dos Alphabetically</button>
+        <button className="sort-button" onClick={() => props.sortChronologically("toDoList")}>Sort To Dos Chronologically</button>
+      </div>
+    )
+  }
   return (
     <div>
-      <h2>To Do Items</h2>
-      <ul className="list-container">{listItems}</ul>
-      <button className="sort-button" onClick={() => props.sortAlphabetically("toDoList")}>Sort To Dos Alphabetically</button>
-      <button className="sort-button" onClick={() => props.sortChronologically("toDoList")}>Sort To Dos Chronologically</button>
+      {toDoContainer}
       {completedContainer}
     </div>
   );

@@ -3,9 +3,9 @@ import React from "react";
 const NewItemInput = (props) => {
   return (
     <div className="new-item-input">
-      <p>New Item Input</p>
       <form onSubmit={props.addItem}>
         <input
+        className="to-do-input"
           placeholder="Enter Task"
           value={props.inputContent}
           onChange={event => props.onInputChange(event.target.value)}

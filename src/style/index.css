@@ -1,8 +1,13 @@
 body {
   padding: 50px;
-  background-color: #66CCFF;
+  background-color: #51c2f7;
   font-family: sans-serif;
   text-align: center;
+}
+
+.App {
+  background-color: #88d7fc;
+  padding: 40px 40px 40px 0px;
 }
 
 ul {
@@ -11,14 +16,32 @@ ul {
 
 .list-item {
   color: #333;
-  padding: 15px;
-  background-color: rgba(255,255,255,.25);
+  padding: 20px 20px 10px 40px;
+  background-color: #66CCFF;
   margin-bottom: 15px;
   border-radius: 5px;
+  text-align: left;
 }
 
 .list-item h3 {
   font-size: 26px;
+  display: inline;
+  cursor: pointer;
+  background-color: #66CCFF;
+}
+
+.list-item button {
+  float: right;
+
+}
+
+.list-item p {
+}
+
+.to-do-input {
+  font-size: 28px;
+  padding: 13px;
+  border-style: none;
 }
 
 button {
@@ -29,4 +52,15 @@ button {
   margin: 5px;
   font-size: 20px;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
 }
+
+.trash-icon {
+  height: 30px;
+}
+
+.delete-list-item {
+  background-color: #f48989;
+}
+
