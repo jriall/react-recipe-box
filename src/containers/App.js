@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ListAndControlsContainer from "./ListAndControlsContainer";
+import Ping from "../assets/sounds/ping.wav";
 
 class App extends Component {
   constructor(props) {
@@ -68,6 +69,9 @@ class App extends Component {
         toDoList: newToDoList,
         completedList: newCompletedList,
       });
+      let sound = document.getElementById('ping');
+      sound.currentTime = 0;
+      sound.play();
     }
     if (list === "completedList") {
       const newCompletedList = this.state[list].filter(a => a !== key);
@@ -174,6 +178,7 @@ class App extends Component {
           toggleCompletedVisibility={this.toggleCompletedVisibility}
           showCompleted={this.state.showCompleted}
         />
+        <audio className="audio-tag" id="ping" src={Ping} />
       </div>
     );
   }
