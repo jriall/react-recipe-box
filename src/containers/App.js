@@ -6,8 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDoList: [["Clean Room", 1508068991398], ["Aish", 1508068991399], ["Zed", 1508068991396], ["Barrel", 15080689913999]],
-      completedList: [["Shopping", 1508068991398]],
+      toDoList: [["Clean Room", 150806899123411], ["Aish", 15080689913123], ["Zed", 1508068991396], ["Barrel", 15080689913999]],
+      completedList: [["Shopping", 15080689912432]],
       deletedList: [],
       inputContent: "",
       showCompleted: false,
@@ -65,7 +65,7 @@ class App extends Component {
 
   handleComplete(key, list) {
     if (list === "toDoList") {
-      const newCompletedList = [...this.state.completedList, key];
+      const newCompletedList = this.state.completedList.concat([key]);
       const newToDoList = this.state[list].filter(a => a !== key);
       this.setState({
         toDoList: newToDoList,
@@ -77,7 +77,7 @@ class App extends Component {
     }
     if (list === "completedList") {
       const newCompletedList = this.state[list].filter(a => a !== key);
-      const newToDoList = [...this.state.toDoList, key];
+      const newToDoList = this.state.toDoList.concat([key]);
       this.setState({
         toDoList: newToDoList,
         completedList: newCompletedList,

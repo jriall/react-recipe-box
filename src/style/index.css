@@ -8,6 +8,8 @@ body {
 .App {
   background-color: #88d7fc;
   padding: 40px 40px 40px 0px;
+  max-width: 70%;
+  margin: auto;
 }
 
 ul {
@@ -42,6 +44,8 @@ ul {
   font-size: 28px;
   padding: 13px;
   border-style: none;
+  width: 70%;
+  margin-bottom: 40px;
 }
 
 button {
