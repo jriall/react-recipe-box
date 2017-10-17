@@ -6,8 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDoList: [["Clean Room", 150806899123411], ["Aish", 15080689913123], ["Zed", 1508068991396], ["Barrel", 15080689913999]],
-      completedList: [["Shopping", 15080689912432]],
+      toDoList: [["Task #1", 150806899123411], ["Task #2", 15080689913123], ["Task #3", 1508068991396], ["Task #4", 15080689913999]],
+      completedList: [["Task #5", 15080689912432], ["Task #6", 15080689912417]],
       deletedList: [],
       inputContent: "",
       showCompleted: false,
@@ -46,7 +46,18 @@ class App extends Component {
   }
 
   editToDo(val) {
-
+    const before = Object.keys(val);
+    const after = val[before];
+    let toReplace;
+    for (let i=0; i<this.state.toDoList.length; i++) {
+      if (this.state.toDoList[i][0] == before) {
+        toReplace = i;
+      }
+    }
+    let newToDoList = //replace with new array item
+    this.setState({
+      toDoList: newToDoList,
+    })
   }
 
   deleteItem(key, list) {
