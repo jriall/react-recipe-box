@@ -46,7 +46,9 @@ class App extends Component {
 
   deleteItem(key, list) {
     const newDeletedList = this.state.deletedList.concat(key);
-    const filtered = this.state[list].filter(a => a !== key);
+    let filtered = this.state[list].slice();
+    filtered.splice(filtered.indexOf(key), 1);
+    //const filtered = this.state[list].filter(a => a !== key);
     if (list === "toDoList") {
       this.setState({
         toDoList: filtered,
