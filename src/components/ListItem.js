@@ -1,5 +1,7 @@
 import React from "react";
 import TrashIcon from '../assets/images/trash-icon.png';
+import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
+import _ from 'lodash'
 
 const ListItem = props => {
   const d = new Date(props.item[1]);
@@ -18,7 +20,18 @@ const ListItem = props => {
       <div className="list-item-container">
         <li className="list-item">
           <button className="completed-button" onClick={() => props.handleComplete(props.item, props.list)}>Completed</button>
-          {props.list === "completedList" ? <h3><strike>{props.item[0]}</strike></h3> : <h3>{props.item[0]}</h3>}
+          {props.list === "completedList" ? <h3>
+            <strike>
+            {props.item[0]}
+            </strike>
+          </h3> : <h3>
+            <RIEInput
+              value={props.item[0]}
+              change={props.editToDo}
+              propName={props.item[0]}
+              validate={_.isString}
+            />
+          </h3>}
           <button className="delete-list-item" onClick={() => props.deleteItem(props.item, props.list)}><img className="trash-icon" src={TrashIcon} alt="trash"/></button>
           <p>Created on: {`${date}/${month}/${year} at ${hours}:${minutes}`}</p>
         </li>

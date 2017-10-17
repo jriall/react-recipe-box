@@ -4,7 +4,7 @@ import CompletedListContainer from './CompletedListContainer';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 const ListContainer = (props) => {
-  const listItems = props.list.map((item) => <ListItem item={item} key={item[1]} deleteItem={props.deleteItem} list="toDoList" handleComplete={props.handleComplete} />)
+  const listItems = props.list.map((item, index) => <ListItem item={item} key={item[1]} deleteItem={props.deleteItem} list="toDoList" handleComplete={props.handleComplete} editToDo={props.editToDo} index={index} />)
   let completedList = "";
   if (props.showCompleted) {
     completedList = <CompletedListContainer completedList={props.completedList} handleComplete={props.handleComplete} sortAlphabetically={props.sortAlphabetically} sort sortChronologically={props.sortChronologically} showCompleted={props.showCompleted} deleteItem={props.deleteItem} />

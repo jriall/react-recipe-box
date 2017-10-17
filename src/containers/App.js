@@ -23,6 +23,7 @@ class App extends Component {
     this.sortAlphabetically = this.sortAlphabetically.bind(this);
     this.sortChronologically = this.sortChronologically.bind(this);
     this.toggleCompletedVisibility = this.toggleCompletedVisibility.bind(this);
+    this.editToDo = this.editToDo.bind(this);
   }
 
   onInputChange(term) {
@@ -42,6 +43,10 @@ class App extends Component {
     }
     e.preventDefault();
     console.log(this.state.toDoList);
+  }
+
+  editToDo(val) {
+
   }
 
   deleteItem(key, list) {
@@ -178,6 +183,7 @@ class App extends Component {
           sortChronologically={this.sortChronologically}
           toggleCompletedVisibility={this.toggleCompletedVisibility}
           showCompleted={this.state.showCompleted}
+          editToDo={this.editToDo}
         />
         <audio className="audio-tag" id="ping" src={Ping} />
       </div>
