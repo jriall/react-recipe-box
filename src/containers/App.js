@@ -54,9 +54,14 @@ class App extends Component {
         toReplace = i;
       }
     }
-    let newToDoList = //replace with new array item
+    let edited = this.state.toDoList[toReplace];
+    edited.shift();
+    edited.unshift(after)
+    let sliced = this.state.toDoList
+    sliced[toReplace] = edited;
+    console.log(sliced);
     this.setState({
-      toDoList: newToDoList,
+      toDoList: edited,
     })
   }
 
