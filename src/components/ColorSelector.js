@@ -1,14 +1,13 @@
 import React from "react";
 
 const ColorSelector = (props) => {
+  const colors = ["Blue", "Green", "Yellow", "Purple"];
+  const menuItems = colors.map((color, index) => <p onClick={() =>props.changeColor(color)} key={index}>{color}</p>);
   return (
     <div className="dropdown">
-      <button class="dropbtn">Dropdown</button>
-      <div class="dropdown-content">
-        <p>Blue</p>
-        <p>Green</p>
-        <p>Yellow</p>
-        <p>Purple</p>
+      <button className="dropbtn">Dropdown</button>
+      <div className="dropdown-content">
+        {menuItems}
       </div>
     </div>
   )
