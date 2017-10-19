@@ -28,6 +28,7 @@ class App extends Component {
     this.toggleCompletedVisibility = this.toggleCompletedVisibility.bind(this);
     this.onCategoryInputChange = this.onCategoryInputChange.bind(this);
     this.addCategory = this.addCategory.bind(this);
+    this.deleteCategory = this.deleteCategory.bind(this);
   }
 
   onToDoInputChange(term) {
@@ -57,13 +58,21 @@ class App extends Component {
   addCategory(e) {
     if (this.state.categoryInputContent) {
       const current = this.state.categories;
-      current.push([this.state.categoryInputContent, Date.now()]);
+      current.push(this.state.categoryInputContent);
       this.setState({
         categories: current,
         categoryInputContent: "",
       });
     }
     e.preventDefault();
+    console.log(this.state.categories);
+  }
+
+  deleteCategory(key) {
+    const filtered = this.state.categories.filter(a => a !== key);
+    this.setState({
+      categories: filtered,
+    });
   }
 
 
@@ -202,7 +211,13 @@ class App extends Component {
           toggleCompletedVisibility={this.toggleCompletedVisibility}
           showCompleted={this.state.showCompleted}
         />
-        <CategoryContainer categories={this.state.categories} />
+        <CategoryContainer
+          categories={this.state.categories}
+          categoryInputContent={this.state.categoryInputContent}
+          onCategoryInputChange={this.onCategoryInputChange}
+          addCategory={this.addCategory}
+          deleteCategory={this.deleteCategory}
+        />
         <audio className="audio-tag" id="ping" src={Ping} />
       </div>
     );

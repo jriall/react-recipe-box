@@ -3,87 +3,115 @@ body {
   background-color: #51c2f7;
   font-family: sans-serif;
   text-align: center;
+
+
+  .App {
+    background-color: #88d7fc;
+    padding: 40px 40px 40px 0px;
+    max-width: 70%;
+    margin: auto;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .list-item {
+    color: #333;
+    padding: 20px 20px 10px 40px;
+    background-color: #66CCFF;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: left;
+  }
+
+  .list-item h3 {
+    font-size: 26px;
+    display: inline;
+    background-color: #66CCFF;
+  }
+
+  .list-item button {
+    float: right;
+  }
+
+  .list-item p {}
+
+  .category-item {
+    color: #333;
+    padding: 20px 20px 10px 40px;
+    background-color: #66CCFF;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: left;
+    height: 85px
+  }
+
+  .category-item h3 {
+    font-size: 26px;
+    display: inline;
+    cursor: pointer;
+    background-color: #66CCFF;
+  }
+
+  .category-item button {
+    float: right;
+  }
+
+  .category-item p {}
+
+  .to-do-input {
+    font-size: 28px;
+    padding: 13px;
+    border-style: none;
+    width: 70%;
+    margin-bottom: 40px;
+  }
+
+  .category-input {
+    margin-top: 40px;
+    font-size: 28px;
+    padding: 13px;
+    border-style: none;
+    width: 70%;
+    margin-bottom: 40px;
+  }
+
+  button {
+    background-color: #2B6DF2;
+    color: white;
+    padding: 15px;
+    border-style: none;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  .trash-icon {
+    height: 30px;
+  }
+
+  .delete-list-item {
+    background-color: #f48989;
+  }
+
+  .fade-enter {
+    opacity: 0.01;
+  }
+
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
+  .fade-leave {
+    opacity: 1;
+  }
+
+  .fade-leave-active {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
 }
-
-.App {
-  background-color: #88d7fc;
-  padding: 40px 40px 40px 0px;
-  max-width: 70%;
-  margin: auto;
-}
-
-ul {
-  list-style: none;
-}
-
-.list-item {
-  color: #333;
-  padding: 20px 20px 10px 40px;
-  background-color: #66CCFF;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  text-align: left;
-}
-
-.list-item h3 {
-  font-size: 26px;
-  display: inline;
-  cursor: pointer;
-  background-color: #66CCFF;
-}
-
-.list-item button {
-  float: right;
-
-}
-
-.list-item p {
-}
-
-.to-do-input {
-  font-size: 28px;
-  padding: 13px;
-  border-style: none;
-  width: 70%;
-  margin-bottom: 40px;
-}
-
-button {
-  background-color: #2B6DF2;
-  color: white;
-  padding: 15px;
-  border-style: none;
-  margin: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.trash-icon {
-  height: 30px;
-}
-
-.delete-list-item {
-  background-color: #f48989;
-}
-
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
-.fade-leave {
-  opacity: 1;
-}
-
-.fade-leave-active {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-

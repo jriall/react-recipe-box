@@ -12,7 +12,6 @@ const NewItemInput = (props) => {
         />
         <button type="submit">Add</button>
       </form>
-
     </div>
   );
 };
