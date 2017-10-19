@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  background-color: #51c2f7;
+  background-color: grey;
   font-family: sans-serif;
   text-align: center; }
   body .App {
@@ -19,8 +19,7 @@ body {
     text-align: left; }
   body .list-item h3 {
     font-size: 26px;
-    display: inline;
-    background-color: #66CCFF; }
+    display: inline; }
   body .list-item button {
     float: right; }
   body .category-item {
@@ -34,8 +33,7 @@ body {
   body .category-item h3 {
     font-size: 26px;
     display: inline;
-    cursor: pointer;
-    background-color: #66CCFF; }
+    cursor: pointer; }
   body .category-item button {
     float: right; }
   body .to-do-input {
@@ -104,3 +102,19 @@ body {
     display: block; }
   body .dropdown:hover .dropbtn {
     background-color: #3e8e41; }
+  body .green-app {
+    background-color: #98f99a; }
+  body .blue-app {
+    background-color: #8fd6f7; }
+  body .yellow-app {
+    background-color: #f9f693; }
+  body .purple-app {
+    background-color: #d796f7; }
+  body .green-item {
+    background-color: #6bf97c; }
+  body .blue-item {
+    background-color: #6bcdfd; }
+  body .yellow-item {
+    background-color: #f7f14c; }
+  body .purple-item {
+    background-color: #ee6cfc; }

@@ -3,7 +3,7 @@ import NewCategoryInput from '../components/NewCategoryInput';
 import CategoryItem from '../components/CategoryItem';
 
 const CategoryContainer = (props) => {
-  const categoryList = props.categories.map((item, index) => <CategoryItem category={item} deleteCategory={props.deleteCategory} key={index} />);
+  const categoryList = props.categories.map((item, index) => <CategoryItem category={item} deleteCategory={props.deleteCategory} key={index} colorScheme={props.colorScheme} />);
 
   return (
     <div>

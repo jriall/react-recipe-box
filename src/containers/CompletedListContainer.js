@@ -3,7 +3,7 @@ import ListItem from '../components/ListItem';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 const CompletedListContainer = (props) => {
-  const completedListItems = props.completedList.map((item) => <ListItem item={item} key={item[1]} deleteItem={props.deleteItem} list="completedList" handleComplete={props.handleComplete} />);
+  const completedListItems = props.completedList.map((item) => <ListItem item={item} key={item[1]} deleteItem={props.deleteItem} list="completedList" handleComplete={props.handleComplete} colorScheme={props.colorScheme} />);
 
   return (
     <div>

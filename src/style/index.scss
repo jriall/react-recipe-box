@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  background-color: #51c2f7;
+  background-color: grey;
   font-family: sans-serif;
   text-align: center;
 
@@ -28,7 +28,6 @@ body {
   .list-item h3 {
     font-size: 26px;
     display: inline;
-    background-color: #66CCFF;
   }
 
   .list-item button {
@@ -51,7 +50,6 @@ body {
     font-size: 26px;
     display: inline;
     cursor: pointer;
-    background-color: #66CCFF;
   }
 
   .category-item button {
@@ -156,4 +154,37 @@ body {
   .dropdown:hover .dropbtn {
     background-color: #3e8e41;
   }
+
+  .green-app {
+    background-color: #98f99a;
+  }
+
+  .blue-app {
+    background-color: #8fd6f7;
+  }
+
+  .yellow-app {
+    background-color: #f9f693;
+  }
+
+  .purple-app {
+    background-color: #d796f7;
+  }
+
+  .green-item {
+    background-color: #6bf97c;
+  }
+
+  .blue-item {
+    background-color: #6bcdfd;
+  }
+
+  .yellow-item {
+    background-color: #f7f14c;
+  }
+
+  .purple-item {
+    background-color: #ee6cfc;
+  }
+
 }

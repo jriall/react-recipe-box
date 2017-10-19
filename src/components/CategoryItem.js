@@ -2,10 +2,9 @@ import React from 'react';
 import TrashIcon from "../assets/images/trash-icon.png";
 
 const CategoryItem = (props) => {
-  console.log(props.category);
   return (
     <div>
-      <li className="category-item">
+      <li className={`category-item ${props.colorScheme}-item`}>
         <h3>
           {props.category}
         </h3>

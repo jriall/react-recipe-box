@@ -19,7 +19,7 @@ class App extends Component {
       toDoSortedChronologically: false,
       completedSortedAlphabetically: false,
       completedSortedChronologically: false,
-      currentColor: "Red",
+      colorScheme: "blue",
     };
     this.addItem = this.addItem.bind(this);
     this.onToDoInputChange = this.onToDoInputChange.bind(this);
@@ -199,12 +199,13 @@ class App extends Component {
   }
 
   changeColor(color) {
-    console.log(color);
+    const colorScheme = color.toLowerCase();
+    this.setState({ colorScheme });
   }
 
   render() {
     return (
-      <div className="App">
+      <div className={`App ${this.state.colorScheme}-app`}>
         <ColorSelector changeColor={this.changeColor} currentColor={this.state.currentColor} />
         <ListAndControlsContainer
           list={this.state.toDoList}
@@ -218,6 +219,7 @@ class App extends Component {
           sortChronologically={this.sortChronologically}
           toggleCompletedVisibility={this.toggleCompletedVisibility}
           showCompleted={this.state.showCompleted}
+          colorScheme={this.state.colorScheme}
         />
         <CategoryContainer
           categories={this.state.categories}
@@ -225,6 +227,7 @@ class App extends Component {
           onCategoryInputChange={this.onCategoryInputChange}
           addCategory={this.addCategory}
           deleteCategory={this.deleteCategory}
+          colorScheme={this.state.colorScheme}
         />
         <audio className="audio-tag" id="ping" src={Ping} />
       </div>

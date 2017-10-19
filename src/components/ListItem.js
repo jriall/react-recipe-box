@@ -16,7 +16,7 @@ const ListItem = (props) => {
   }
   return (
     <div className="list-item-container">
-      <li className="list-item">
+      <li className={`list-item ${props.colorScheme}-item`}>
         <button
           className="completed-button"
           onClick={() => props.handleComplete(props.item, props.list)}
