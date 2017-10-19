@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ListAndControlsContainer from "./ListAndControlsContainer";
 import CategoryContainer from "./CategoryContainer";
+import ColorSelector from '../components/ColorSelector';
 import Ping from "../assets/sounds/ping.wav";
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
       toDoSortedChronologically: false,
       completedSortedAlphabetically: false,
       completedSortedChronologically: false,
+      currentColor: "Red",
     };
     this.addItem = this.addItem.bind(this);
     this.onToDoInputChange = this.onToDoInputChange.bind(this);
@@ -29,6 +31,7 @@ class App extends Component {
     this.onCategoryInputChange = this.onCategoryInputChange.bind(this);
     this.addCategory = this.addCategory.bind(this);
     this.deleteCategory = this.deleteCategory.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   onToDoInputChange(term) {
@@ -195,9 +198,14 @@ class App extends Component {
     }
   }
 
+  changeColor(color) {
+    console.log(color);
+  }
+
   render() {
     return (
       <div className="App">
+        <ColorSelector changeColor={this.changeColor} currentColor={this.state.currentColor} />
         <ListAndControlsContainer
           list={this.state.toDoList}
           addItem={this.addItem}
