@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ListAndControlsContainer from "./ListAndControlsContainer";
+import CategoryContainer from "./CategoryContainer";
 import Ping from "../assets/sounds/ping.wav";
 
 class App extends Component {
@@ -9,7 +10,9 @@ class App extends Component {
       toDoList: [["Task #1", 150806899123411], ["Task #2", 15080689913123], ["Task #3", 1508068991396], ["Task #4", 15080689913999]],
       completedList: [["Task #5", 15080689912432], ["Task #6", 15080689912417]],
       deletedList: [],
-      inputContent: "",
+      categories: ["Chores", "Work", "University", "Holiday"],
+      toDoInputContent: "",
+      categoryInputContent: "",
       showCompleted: false,
       toDoSortedAlphabetically: false,
       toDoSortedChronologically: false,
@@ -17,53 +20,52 @@ class App extends Component {
       completedSortedChronologically: false,
     };
     this.addItem = this.addItem.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
+    this.onToDoInputChange = this.onToDoInputChange.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
     this.sortAlphabetically = this.sortAlphabetically.bind(this);
     this.sortChronologically = this.sortChronologically.bind(this);
     this.toggleCompletedVisibility = this.toggleCompletedVisibility.bind(this);
-    this.editToDo = this.editToDo.bind(this);
+    this.onCategoryInputChange = this.onCategoryInputChange.bind(this);
+    this.addCategory = this.addCategory.bind(this);
   }
 
-  onInputChange(term) {
+  onToDoInputChange(term) {
     this.setState({
-      inputContent: term,
+      toDoInputContent: term,
     });
   }
 
   addItem(e) {
-    if (this.state.inputContent) {
+    if (this.state.toDoInputContent) {
       const current = this.state.toDoList;
-      current.push([this.state.inputContent, Date.now()]);
+      current.push([this.state.toDoInputContent, Date.now()]);
       this.setState({
         toDoList: current,
-        inputContent: "",
+        toDoInputContent: "",
       });
     }
     e.preventDefault();
-    console.log(this.state.toDoList);
   }
 
-  editToDo(val) {
-    const before = Object.keys(val);
-    const after = val[before];
-    let toReplace;
-    for (let i=0; i<this.state.toDoList.length; i++) {
-      if (this.state.toDoList[i][0] == before) {
-        toReplace = i;
-      }
-    }
-    let edited = this.state.toDoList[toReplace];
-    edited.shift();
-    edited.unshift(after)
-    let sliced = this.state.toDoList
-    sliced[toReplace] = edited;
-    console.log(sliced);
+  onCategoryInputChange(term) {
     this.setState({
-      toDoList: edited,
-    })
+      categoryInputContent: term,
+    });
   }
+
+  addCategory(e) {
+    if (this.state.categoryInputContent) {
+      const current = this.state.categories;
+      current.push([this.state.categoryInputContent, Date.now()]);
+      this.setState({
+        categories: current,
+        categoryInputContent: "",
+      });
+    }
+    e.preventDefault();
+  }
+
 
   deleteItem(key, list) {
     const newDeletedList = this.state.deletedList.concat(key);
@@ -190,8 +192,8 @@ class App extends Component {
         <ListAndControlsContainer
           list={this.state.toDoList}
           addItem={this.addItem}
-          inputContent={this.state.inputContent}
-          onInputChange={this.onInputChange}
+          inputContent={this.state.toDoInputContent}
+          onInputChange={this.onToDoInputChange}
           deleteItem={this.deleteItem}
           completedList={this.state.completedList}
           handleComplete={this.handleComplete}
@@ -199,8 +201,8 @@ class App extends Component {
           sortChronologically={this.sortChronologically}
           toggleCompletedVisibility={this.toggleCompletedVisibility}
           showCompleted={this.state.showCompleted}
-          editToDo={this.editToDo}
         />
+        <CategoryContainer categories={this.state.categories} />
         <audio className="audio-tag" id="ping" src={Ping} />
       </div>
     );
