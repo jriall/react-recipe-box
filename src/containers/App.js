@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ListAndControlsContainer from "./ListAndControlsContainer";
-import CategoryContainer from "./CategoryContainer";
 import ColorSelector from '../components/ColorSelector';
 import Ping from "../assets/sounds/ping.wav";
 
@@ -11,9 +10,7 @@ class App extends Component {
       toDoList: [["Task #1", 150806899123411], ["Task #2", 15080689913123], ["Task #3", 1508068991396], ["Task #4", 15080689913999]],
       completedList: [["Task #5", 15080689912432], ["Task #6", 15080689912417]],
       deletedList: [],
-      categories: ["Chores", "Work", "University", "Holiday"],
       toDoInputContent: "",
-      categoryInputContent: "",
       showCompleted: false,
       toDoSortedAlphabetically: false,
       toDoSortedChronologically: false,
@@ -28,9 +25,6 @@ class App extends Component {
     this.sortAlphabetically = this.sortAlphabetically.bind(this);
     this.sortChronologically = this.sortChronologically.bind(this);
     this.toggleCompletedVisibility = this.toggleCompletedVisibility.bind(this);
-    this.onCategoryInputChange = this.onCategoryInputChange.bind(this);
-    this.addCategory = this.addCategory.bind(this);
-    this.deleteCategory = this.deleteCategory.bind(this);
     this.changeColor = this.changeColor.bind(this);
   }
 
@@ -51,33 +45,6 @@ class App extends Component {
     }
     e.preventDefault();
   }
-
-  onCategoryInputChange(term) {
-    this.setState({
-      categoryInputContent: term,
-    });
-  }
-
-  addCategory(e) {
-    if (this.state.categoryInputContent) {
-      const current = this.state.categories;
-      current.push(this.state.categoryInputContent);
-      this.setState({
-        categories: current,
-        categoryInputContent: "",
-      });
-    }
-    e.preventDefault();
-    console.log(this.state.categories);
-  }
-
-  deleteCategory(key) {
-    const filtered = this.state.categories.filter(a => a !== key);
-    this.setState({
-      categories: filtered,
-    });
-  }
-
 
   deleteItem(key, list) {
     const newDeletedList = this.state.deletedList.concat(key);
@@ -219,14 +186,6 @@ class App extends Component {
           sortChronologically={this.sortChronologically}
           toggleCompletedVisibility={this.toggleCompletedVisibility}
           showCompleted={this.state.showCompleted}
-          colorScheme={this.state.colorScheme}
-        />
-        <CategoryContainer
-          categories={this.state.categories}
-          categoryInputContent={this.state.categoryInputContent}
-          onCategoryInputChange={this.onCategoryInputChange}
-          addCategory={this.addCategory}
-          deleteCategory={this.deleteCategory}
           colorScheme={this.state.colorScheme}
         />
         <audio className="audio-tag" id="ping" src={Ping} />

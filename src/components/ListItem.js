@@ -21,7 +21,7 @@ const ListItem = (props) => {
           className="completed-button"
           onClick={() => props.handleComplete(props.item, props.list)}
         >
-          Completed
+          {props.list === "completedList" ? "Return to List" : "Completed"}
         </button>
         {props.list === "completedList" ? (
           <h3>
