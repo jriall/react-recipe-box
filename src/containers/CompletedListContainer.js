@@ -8,10 +8,10 @@ const CompletedListContainer = (props) => {
 const sortButtons = (
   <div>
     <button
-      className="sort-button" onClick={() => props.sortAlphabetically("completedList")}>Sort Completed Alphabetically
+      className="sort-button" onClick={() => props.sortAlphabetically("completedList")}>Sort Alphabetically
     </button>
     <button
-      className="sort-button" onClick={() => props.sortChronologically("completedList")}>Sort Completed Chronologically
+      className="sort-button" onClick={() => props.sortChronologically("completedList")}>Sort Chronologically
     </button>
   </div>
 );
