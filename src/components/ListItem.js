@@ -4,7 +4,7 @@ import TrashIcon from "../assets/images/trash-icon.png";
 const ListItem = (props) => {
   const d = new Date(props.item[1]);
   const date = d.getDate();
-  const month = d.getMonth();
+  const month = d.getMonth() +1;
   const year = d.getFullYear();
   let hours = d.getHours();
   let minutes = d.getMinutes();
