@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDoList: [["Task #1", 150806899123411], ["Task #2", 15080689913123], ["Task #3", 1508068991396], ["Task #4", 15080689913999]],
-      completedList: [["Task #5", 15080689912432], ["Task #6", 15080689912417]],
+      toDoList: [["Take out rubbish", 1508068991397], ["Grocery shopping", 1508068991398], ["Walk the dog", 1508068991396], ["Go for run", 1508068991310]],
+      completedList: [["Wash dishes", 1508068991400], ["Pay bills", 1508068991401]],
       deletedList: [],
       toDoInputContent: "",
       showCompleted: false,
@@ -173,6 +173,7 @@ class App extends Component {
   render() {
     return (
       <div className={`App ${this.state.colorScheme}-app`}>
+        <h1>React To Do List</h1>
         <ColorSelector changeColor={this.changeColor} currentColor={this.state.currentColor} colorScheme={this.state.colorScheme}/>
         <ListAndControlsContainer
           list={this.state.toDoList}

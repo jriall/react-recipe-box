@@ -17,12 +17,7 @@ const ListItem = (props) => {
   return (
     <div className="list-item-container">
       <li className={`list-item ${props.colorScheme}-item`}>
-        <button
-          className="completed-button"
-          onClick={() => props.handleComplete(props.item, props.list)}
-        >
-          {props.list === "completedList" ? "Return to List" : "Completed"}
-        </button>
+        <div className="item-content-div">
         {props.list === "completedList" ? (
           <h3>
             <strike>{props.item[0]}</strike>
@@ -30,13 +25,22 @@ const ListItem = (props) => {
         ) : (
           <h3>{props.item[0]}</h3>
         )}
+        <p>Created on: {`${date}/${month}/${year} at ${hours}:${minutes}`}</p>
+        </div>
+        <div className="item-content-buttons">
         <button
           className="delete-list-item"
           onClick={() => props.deleteItem(props.item, props.list)}
         >
           <img className="trash-icon" src={TrashIcon} alt="trash" />
         </button>
-        <p>Created on: {`${date}/${month}/${year} at ${hours}:${minutes}`}</p>
+        <button
+          className="completed-button"
+          onClick={() => props.handleComplete(props.item, props.list)}
+        >
+          {props.list === "completedList" ? "✘" : "✔"}
+        </button>
+        </div>
       </li>
     </div>
   );

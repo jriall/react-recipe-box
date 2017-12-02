@@ -133,12 +133,19 @@ body {
   background-color: #88d7fc;
   font-family: sans-serif;
   text-align: center;
+  font-family: "Lato", sans-serif;
 
   .App {
     background-color: #88d7fc;
     padding: 40px 40px 40px 40px;
     margin: auto;
     min-height: 100vh;
+  }
+
+  h1 {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 20px;
   }
 
   ul {
@@ -149,31 +156,36 @@ body {
 
   .list-item {
     color: #333;
-    padding: 30px 40px 30px 40px;
+    padding: 20px 20px 20px 20px;
     background-color: #66ccff;
     margin-bottom: 15px;
     border-radius: 5px;
     text-align: left;
+    div {
+      display: inline-block;
+    }
+    .item-content-div {
+      max-width: 60%;
+    }
+    .item-content-buttons {
+      float: right;
+    }
     p {
       font-size: 12px;
+      margin-top: 5px;
+    }
+    h3 {
+      font-size: 20px;
+      display: inline;
+      width: 100px;
+    }
+    button {
+      float: right;
     }
   }
-
-  .list-item h3 {
-    font-size: 20px;
-    display: inline;
-  }
-
-  .list-item button {
-    float: right;
-  }
-
-  .list-item p {
-  }
-
   .category-item {
     color: #333;
-    padding: 20px 20px 10px 40px;
+    padding: 20px 20px 20px 40px;
     background-color: #66ccff;
     margin-bottom: 15px;
     border-radius: 5px;
@@ -222,7 +234,7 @@ body {
     color: white;
     padding: 10px;
     border-style: none;
-    margin: 0px 0px 0px 15px;
+    margin: 5px 0px 5px 15px;
     font-size: 14px;
     cursor: pointer;
     font-weight: bold;
@@ -313,4 +325,9 @@ body {
   .purple-app {
     background-color: #e5bafc;
   }
+  @media screen and (max-width: 768px) {
+  .App {
+    padding: 40px 10px 40px 10px;
+  }
+}
 }
