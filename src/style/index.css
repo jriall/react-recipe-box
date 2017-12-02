@@ -1,66 +1,196 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
 body {
-  padding: 50px;
-  background-color: grey;
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #88d7fc;
   font-family: sans-serif;
   text-align: center; }
   body .App {
     background-color: #88d7fc;
-    padding: 40px 40px 40px 0px;
-    max-width: 70%;
-    margin: auto; }
+    padding: 40px 40px 40px 40px;
+    margin: auto;
+    min-height: 100vh; }
   body ul {
-    list-style: none; }
+    list-style: none;
+    max-width: 1000px;
+    margin: 0 auto; }
   body .list-item {
     color: #333;
-    padding: 20px 20px 10px 40px;
-    background-color: #66CCFF;
+    padding: 30px 40px 30px 40px;
+    background-color: #66ccff;
     margin-bottom: 15px;
     border-radius: 5px;
     text-align: left; }
+    body .list-item p {
+      font-size: 12px; }
   body .list-item h3 {
-    font-size: 26px;
+    font-size: 20px;
     display: inline; }
   body .list-item button {
     float: right; }
   body .category-item {
     color: #333;
     padding: 20px 20px 10px 40px;
-    background-color: #66CCFF;
+    background-color: #66ccff;
     margin-bottom: 15px;
     border-radius: 5px;
     text-align: left;
     height: 85px; }
   body .category-item h3 {
-    font-size: 26px;
+    font-size: 20px;
     display: inline;
     cursor: pointer; }
   body .category-item button {
     float: right; }
   body .to-do-input {
-    font-size: 28px;
+    font-size: 20px;
     padding: 13px;
     border-style: none;
     width: 70%;
+    max-width: 500px;
     margin-bottom: 40px; }
   body .category-input {
     margin-top: 40px;
-    font-size: 28px;
+    font-size: 20px;
     padding: 13px;
     border-style: none;
     width: 70%;
     margin-bottom: 40px; }
-  body button {
-    background-color: #2B6DF2;
-    color: white;
-    padding: 15px;
-    border-style: none;
-    margin: 5px;
+  body h2 {
     font-size: 20px;
+    margin: 15px 0px 15px 0px; }
+  body button {
+    background-color: #2b6df2;
+    color: white;
+    padding: 10px;
+    border-style: none;
+    margin: 0px 0px 0px 15px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: bold;
     border-radius: 5px; }
   body .trash-icon {
-    height: 30px; }
+    height: 14px; }
   body .delete-list-item {
     background-color: #f48989; }
   body .fade-enter {
@@ -74,21 +204,20 @@ body {
     opacity: 0;
     transition: opacity 0.5s; }
   body .dropbtn {
-    background-color: #4CAF50;
     color: white;
     padding: 16px;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
     cursor: pointer; }
   body .dropdown {
     position: relative;
     display: inline-block;
-    margin-bottom: 40px; }
+    margin-bottom: 30px; }
   body .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 210px;
+    width: 210px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     cursor: pointer; }
@@ -99,27 +228,15 @@ body {
     display: block; }
   body .dropdown-content p:hover {
     background-color: #f1f1f1; }
-  body .color-box {
-    height: 20px;
-    width: 20px;
-    background-color: green; }
+  body .visibility-button {
+    margin: 15px; }
   body .dropdown:hover .dropdown-content {
     display: block; }
-  body .dropdown:hover .dropbtn {
-    background-color: #3e8e41; }
   body .green-app {
-    background-color: #98f99a; }
+    background-color: #dbf9dc; }
   body .blue-app {
     background-color: #8fd6f7; }
   body .yellow-app {
-    background-color: #f9f693; }
+    background-color: #fcf9ba; }
   body .purple-app {
-    background-color: #d796f7; }
-  body .green-item {
-    background-color: #6bf97c; }
-  body .blue-item {
-    background-color: #6bcdfd; }
-  body .yellow-item {
-    background-color: #f7f14c; }
-  body .purple-item {
-    background-color: #ee6cfc; }
+    background-color: #e5bafc; }

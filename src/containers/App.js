@@ -173,7 +173,7 @@ class App extends Component {
   render() {
     return (
       <div className={`App ${this.state.colorScheme}-app`}>
-        <ColorSelector changeColor={this.changeColor} currentColor={this.state.currentColor} />
+        <ColorSelector changeColor={this.changeColor} currentColor={this.state.currentColor} colorScheme={this.state.colorScheme}/>
         <ListAndControlsContainer
           list={this.state.toDoList}
           addItem={this.addItem}
