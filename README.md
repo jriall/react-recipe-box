@@ -14,6 +14,8 @@ Project is originally created with Facebook's create-react-app, and set up to us
 
 Styling is aided by use of Sass - although React's component-based architecture means that much of Sass's benefits are made redundant, I still prefer giving myself the option of using Sass syntax, mixins, variables etc.
 
+In a similar design pattern to the Drum Kit, I have kept all state isolated to the App.js component and kept the children components and containers as 'dumb' as possible with the required data and action handlers passed down to them as props from App.js.
 
+Interacting with the various elements of the UI (create new to do, delete to do, complete to do or mark to as uncomplete, show completed to dos or changing the background color) have the effect of calling the relevant functions living within the App component which then calls them to modify the state accordingly, pass that state down to the children elements again as props, and re-render the view to the user.
 
 Finally, the project was deplayed through GitHub Pages through a process which is easily repeated with a custom deploy script I added to the package.json file.
