@@ -10,4 +10,10 @@ Built with React, my to do list allows users to view both outstanding to dos as 
 
 ## The Logic
 
-TBC
+Project is originally created with Facebook's create-react-app, and set up to use Airbnb's ESLint style guide for linting and styling enforcement.
+
+Styling is aided by use of Sass - although React's component-based architecture means that much of Sass's benefits are made redundant, I still prefer giving myself the option of using Sass syntax, mixins, variables etc.
+
+
+
+Finally, the project was deplayed through GitHub Pages through a process which is easily repeated with a custom deploy script I added to the package.json file.
